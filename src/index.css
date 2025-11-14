@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Perustypografia */
+:root {
+  --ring: 0 0% 0%;
+}
+html, body {
+  height: 100%;
+}
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #0f172a; /* slate-900 */
+  background: #f8fafc; /* slate-50 */
+}
+
+/* Kortti */
+.card {
+  @apply bg-white rounded-2xl border border-slate-200 shadow-sm;
+}
+
+/* Pehmeä kortti (valinnainen) */
+.card-soft {
+  @apply bg-indigo-50 rounded-2xl border border-indigo-100 shadow-sm;
+}
+
+/* Syötekenttä */
+.input {
+  @apply rounded-lg border px-3 py-2 text-sm outline-none transition;
+  @apply border-slate-300 text-slate-900;
+}
+.input:focus {
+  @apply ring-2 ring-indigo-500 border-indigo-500;
+}
+
+/* Progress palkki (bar only) */
+.progress {
+  @apply h-2 w-full rounded-full overflow-hidden bg-slate-200;
+}
+.progress > div {
+  @apply h-full bg-indigo-500;
+}
+
+/* Scrollbar (vaaka) – siistitty */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #c7d2fe; /* indigo-200 */
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Pienet fade-animoinnit kortteihin */
+@keyframes cardFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card, .card-soft {
+  animation: cardFade .25s ease both;
+}
