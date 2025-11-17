@@ -71,6 +71,14 @@ const POOL = {
     accessory("DB Curl", 3, "8–10"),
     accessory("Preacher Curl", 3, "10–12"),
   ],
+  tricepsEven: [
+    accessory("Skull Crusher", 3, "8-10"),
+    accessory("Triceps Rope Push-Down", 3, "10-12"),
+  ],
+  tricepsOdd: [
+    accessory("Weighted Dip", 3, "6-10"),
+    accessory("Triceps Push-Down", 3, "8-12"),
+  ]
 };
 
 function coreOdd(): Accessory[] {
@@ -120,6 +128,7 @@ function day1(week: number, isOddWeek: boolean): Session {
     accessories: [
       ...(isOddWeek ? POOL.chestOdd : POOL.chestEven),
       ...(isOddWeek ? POOL.quadsOdd : POOL.quadsEven),
+      ...(isOddWeek ? POOL.tricepsOdd : POOL.tricepsEven),
       ...(isOddWeek ? coreOdd() : coreEven()),
     ],
   };
